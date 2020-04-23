@@ -1,0 +1,133 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/lightbox.min.css">
+    <script src="js/lightbox-plus-jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Document</title>
+</head>
+<body>
+        <div id="searchWrapper">
+                <input type="text" name="searchBar" id="searchBar" placeholder="search" />
+            </div>
+    <div class="gallery">
+        <ul id="charactersList">
+        <li><a href="gallerly.js-master/images/9070851928_555c3a429e_b.jpg" data-lightbox="fashionshow" data-title="Wow space" data-alt="space"><img src="gallerly.js-master/images/Des_M_1696838a.jpg"></a></li>
+        <li><a href="gallerly.js-master/images/Des_M_1696838a.jpg" data-lightbox="fashionshow" data-title="Mars0w0/"><img src="gallerly.js-master/images/9070851928_555c3a429e_b.jpg" alt="mars"></a></li>
+        <li><a href="gallerly.js-master/images/Des_M_1696838a.jpg" data-lightbox="fashionshow" data-title="Mars0w0/2"><img src="gallerly.js-master/images/9070851928_555c3a429e_b.jpg" alt=""></a></li>
+        <li><a href="gallerly.js-master/images/Des_M_1696838a.jpg" data-lightbox="fashionshow" data-title="Mars0w0/3"><img src="gallerly.js-master/images/9070851928_555c3a429e_b.jpg" alt=""></a></li>
+        <li><a href="gallerly.js-master/images/Des_M_1696838a.jpg" data-lightbox="fashionshow" data-title="Mars0w0/4"><img src="gallerly.js-master/images/9070851928_555c3a429e_b.jpg" alt=""></a></li>
+        <li><a href="gallerly.js-master/images/Des_M_1696838a.jpg" data-lightbox="fashionshow" data-title="Mars0w0/5"><img src="gallerly.js-master/images/9070851928_555c3a429e_b.jpg" alt=""></a></li>
+
+        <li><a href="gallerly.js-master/images/9070851928_555c3a429e_b.jpg" data-lightbox="fashionshow" data-title="Wow space again /2" data-alt="something"><img src="gallerly.js-master/images/Des_M_1696838a.jpg" alt=""></a></li>
+        <li><a href="gallerly.js-master/images/Des_M_1696838a.jpg" data-lightbox="fashionshow" data-title="Mars0w0/6"><img src="gallerly.js-master/images/9070851928_555c3a429e_b.jpg" alt=""></a></li>
+        <li><a href="gallerly.js-master/images/Des_M_1696838a.jpg" data-lightbox="fashionshow" data-title="Mars0w0/7"><img src="gallerly.js-master/images/9070851928_555c3a429e_b.jpg" alt=""></a></li>
+        <li><a href="gallerly.js-master/images/Des_M_1696838a.jpg" data-lightbox="fashionshow" data-title="Mars0w0/8"><img src="gallerly.js-master/images/Des_M_1696838a.jpg" alt=""></a></li>
+        <li><a href="gallerly.js-master/images/Des_M_1696838a.jpg" data-lightbox="fashionshow" data-title="Mars0w0/9"><img src="gallerly.js-master/images/9070851928_555c3a429e_b.jpg" alt=""></a></li>
+        <li><a href="gallerly.js-master/images/Des_M_1696838a.jpg" data-lightbox="fashionshow" data-title="Mars0w0/10"><img src="gallerly.js-master/images/9070851928_555c3a429e_b.jpg" alt=""></a></li>
+
+        <li><a href="gallerly.js-master/images/9070851928_555c3a429e_b.jpg" data-lightbox="fashionshow" data-title="Space again -~-/3" data-alt="something"><img src="gallerly.js-master/images/9070851928_555c3a429e_b.jpg" alt=""></a></li>
+        <li><a href="gallerly.js-master/images/Des_M_1696838a.jpg" data-lightbox="fashionshow" data-title="Mars0w0/11"><img src="gallerly.js-master/images/9070851928_555c3a429e_b.jpg" alt=""></a></li>
+        <li><a href="gallerly.js-master/images/Des_M_1696838a.jpg" data-lightbox="fashionshow" data-title="Mars0w0/12"><img src="gallerly.js-master/images/9070851928_555c3a429e_b.jpg" alt=""></a></li>
+        <li><a href="gallerly.js-master/images/Des_M_1696838a.jpg" data-lightbox="fashionshow" data-title="Mars0w0/13"><img src="gallerly.js-master/images/9070851928_555c3a429e_b.jpg" alt=""></a></li>
+    </ul>
+    </div>
+    <script>
+        const charactersList = document.getElementById('charactersList');
+const searchBar = document.getElementById('searchBar');
+let hpCharacters = [];
+
+searchBar.addEventListener('keyup', (e) => {
+    const searchString = e.target.value.toLowerCase();
+
+    const filteredCharacters = hpCharacters.filter((character) => {
+        return (
+            character.name.toLowerCase().includes(searchString) ||
+            character.house.toLowerCase().includes(searchString)
+        );
+    });
+    displayCharacters(filteredCharacters);
+});
+
+const loadCharacters = async () => {
+    try {
+        const res = await fetch('https://hp-api.herokuapp.com/api/characters');
+        hpCharacters = await res.json();
+        displayCharacters(hpCharacters);
+    } catch (err) {
+        console.error(err);
+    }
+};
+
+const displayCharacters = (characters) => {
+    const htmlString = characters
+        .map((character) => {
+            return `
+            <li class="character">
+                <h2>${character.name}</h2>
+                <p>House: ${character.house}</p>
+                <img src="${character.image}"></img>
+            </li>
+        `;
+        })
+        .join('');
+    charactersList.innerHTML = htmlString;
+};
+
+loadCharacters();
+
+    </script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+<style>
+.grid-item { width: 200px; }
+img{width: 100%}
+
+</style>
+</head>
+<body>
+        <div class="grid">
+            
+                <div class="grid-item"><a href=""><img src="https://images.unsplash.com/photo-1541233349642-6e425fe6190e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80" alt=""></a></div>
+                <div class="grid-item"><img src="https://www.istockphoto.com/resources/images/PhotoFTLP/Essential-images-we-love-1055891344.jpg" alt=""></div>
+                <div class="grid-item"><img src="https://www.gettyimages.nl/gi-resources/images/500px/983794168.jpg" alt=""></div>
+                <div class="grid-item"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSxDCuMyzJgS48b2N6ZolTqhVt_qE2ynI2NbepomsMkG6ohV1Uk&usqp=CAU" alt=""></div>
+                <div class="grid-item"><img src="https://images.unsplash.com/photo-1541233349642-6e425fe6190e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80" alt=""></div>
+                <div class="grid-item"><img src="https://www.istockphoto.com/resources/images/PhotoFTLP/Essential-images-we-love-1055891344.jpg" alt=""></div>
+                <div class="grid-item"><img src="https://www.gettyimages.nl/gi-resources/images/500px/983794168.jpg" alt=""></div>
+                <div class="grid-item"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSxDCuMyzJgS48b2N6ZolTqhVt_qE2ynI2NbepomsMkG6ohV1Uk&usqp=CAU" alt=""></div>
+                <div class="grid-item"><img src="https://images.unsplash.com/photo-1541233349642-6e425fe6190e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80" alt=""></div>
+                <div class="grid-item"><img src="https://www.istockphoto.com/resources/images/PhotoFTLP/Essential-images-we-love-1055891344.jpg" alt=""></div>
+                <div class="grid-item"><img src="https://www.gettyimages.nl/gi-resources/images/500px/983794168.jpg" alt=""></div>
+                <div class="grid-item"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSxDCuMyzJgS48b2N6ZolTqhVt_qE2ynI2NbepomsMkG6ohV1Uk&usqp=CAU" alt=""></div>
+                <div class="grid-item"><img src="https://images.unsplash.com/photo-1541233349642-6e425fe6190e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80" alt=""></div>
+                <div class="grid-item"><img src="https://www.istockphoto.com/resources/images/PhotoFTLP/Essential-images-we-love-1055891344.jpg" alt=""></div>
+                <div class="grid-item"><img src="https://www.gettyimages.nl/gi-resources/images/500px/983794168.jpg" alt=""></div>
+                <div class="grid-item"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSxDCuMyzJgS48b2N6ZolTqhVt_qE2ynI2NbepomsMkG6ohV1Uk&usqp=CAU" alt=""></div>
+
+
+        </div>
+        <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+
+        <script>
+        var elem = document.querySelector('.grid');
+var msnry = new Masonry( elem, {
+  // options
+  itemSelector: '.grid-item',
+});
+        </script>
+</body>
+</html>

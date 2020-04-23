@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Document</title>
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/lightbox.min.css">
+        <script src="js/lightbox-plus-jquery.min.js"></script>
+    </head>
+    <body>   
+            
+                <div class="gallery">
+            <div id="searchWrapper">
+                <input type="text" name="searchBar" id="searchBar" placeholder="Filter image"/>
+            </div>
+            
+            
+                <div id="showList">
+                        
+                </div>
+           
+            </div>
+            
+        <script>
+        const showList = document.getElementById('showList');
+const searchBar = document.getElementById('searchBar');
+let allDress = [];
+
+searchBar.addEventListener('keyup', (e) => {
+    const searchString = e.target.value.toLowerCase();
+
+    const filterDress = allDress.filter((dress) => {
+        return (
+            dress.author.toLowerCase().includes(searchString)
+        );
+    });
+    showDress(filterDress);
+});
+
+const loadImage = async () => {
+    try {
+        const res = await fetch('https://picsum.photos/v2/list');        
+        allDress = await res.json();
+        showDress(allDress);
+    } catch (err) {
+        console.error(err);
+    }
+};
+
+const showDress = (clothes) => {
+    const htmlString = clothes
+        .map((dress) => {
+            return `
+                <a href="${dress.download_url}" data-lightbox="fashionshow" data-title="${dress.author}">
+                <img src="${dress.download_url}" />
+            </a>
+        `;
+        })
+        .join('');
+    showList.innerHTML = htmlString;
+};
+
+loadImage();
+        </script>
+    </body>
+</html>
